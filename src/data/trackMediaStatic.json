@@ -1,0 +1,54 @@
+{
+  "bez-standa-01": {
+    "durationSec": 192.864,
+    "coverUrl": "/static/track-covers/bez-standa-01.jpg"
+  },
+  "bez-standa-02": {
+    "durationSec": 181.512,
+    "coverUrl": "/static/track-covers/bez-standa-02.jpg"
+  },
+  "bez-standa-03": {
+    "durationSec": 294.912,
+    "coverUrl": "/static/track-covers/bez-standa-03.jpg"
+  },
+  "bez-standa-04": {
+    "durationSec": 269.64,
+    "coverUrl": "/static/track-covers/bez-standa-04.jpg"
+  },
+  "bez-standa-05": {
+    "durationSec": 258.072,
+    "coverUrl": "/static/track-covers/bez-standa-05.jpg"
+  },
+  "bez-standa-06": {
+    "durationSec": 262.92,
+    "coverUrl": "/static/track-covers/bez-standa-06.jpg"
+  },
+  "bez-standa-07": {
+    "durationSec": 249.624,
+    "coverUrl": "/static/track-covers/bez-standa-07.jpg"
+  },
+  "bez-standa-08": {
+    "durationSec": 189.744,
+    "coverUrl": "/static/track-covers/bez-standa-08.jpg"
+  },
+  "bez-standa-09": {
+    "durationSec": 264.312,
+    "coverUrl": "/static/track-covers/bez-standa-09.jpg"
+  },
+  "bez-standa-10": {
+    "durationSec": 237.144,
+    "coverUrl": "/static/track-covers/bez-standa-10.jpg"
+  },
+  "bez-standa-11": {
+    "durationSec": 167.64,
+    "coverUrl": "/static/track-covers/bez-standa-11.jpg"
+  },
+  "promyshlennyj-glyuk-01": {
+    "durationSec": 222.264,
+    "coverUrl": "/static/track-covers/promyshlennyj-glyuk-01.jpg"
+  },
+  "rzhavyj-kod-01": {
+    "durationSec": 203.04,
+    "coverUrl": "/static/track-covers/rzhavyj-kod-01.jpg"
+  }
+}

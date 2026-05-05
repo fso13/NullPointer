@@ -35,10 +35,11 @@ const TrackProvider: React.FC<IProps> = ({ children }) => {
       setPrevTrack(currentAlbum.tracks[prevIndex]);
       setNextTrack(currentAlbum.tracks[nextIndex]);
 
-      setTrackDuration(0);
+      const staticDur = currentTrack?.staticDurationSec;
+      setTrackDuration(staticDur != null && Number.isFinite(staticDur) ? staticDur : 0);
       setCurrentProgress(0);
     }
-  }, [currentAlbum, currentTrack?.id]);
+  }, [currentAlbum, currentTrack?.id, currentTrack?.staticDurationSec]);
 
   /**
    * Adds a track and album to the current state and sets the state to 'playing'.
@@ -230,7 +231,7 @@ const TrackProvider: React.FC<IProps> = ({ children }) => {
     <TrackContext value={providerValue}>
       <audio
         ref={audioRef}
-        preload='auto'
+        preload='none'
         onEnded={handleOnEnded}
         onCanPlay={handleOnCanPlay}
         onPause={() => changeState('paused')}

@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "extract:media": "node scripts/extractTrackMedia.mjs",
+    "build": "node scripts/extractTrackMedia.mjs && set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "eslint": "eslint ./src",
     "prettier": "prettier --check **",
     "prettier fix": "prettier --write **"
@@ -49,6 +50,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "music-metadata": "^11.12.3",
     "prettier": "^3.7.4",
     "typescript-eslint": "^8.49.0"
   }

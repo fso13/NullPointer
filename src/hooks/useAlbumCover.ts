@@ -4,26 +4,19 @@ import type { IAlbum } from '../types/types';
 import { getAudioMetadata } from '../utils/audioMetadata';
 
 const useAlbumCover = (album: IAlbum | null | undefined): string => {
-  const [cover, setCover] = useState<string>(album?.image || '');
+  const baseImage = album?.image || '';
+  const albumId = album?.id;
+  const firstTrack = album?.tracks?.[0];
+  const firstTrackStaticCover = firstTrack?.staticCoverUrl;
+
+  const [fetchedByAlbumId, setFetchedByAlbumId] = useState<Record<string, string>>({});
 
   useEffect(() => {
+    if (!albumId || albumId === 'bez-standa' || firstTrackStaticCover || !firstTrack?.mediaurl) {
+      return;
+    }
+
     let isMounted = true;
-    const firstTrack = album?.tracks?.[0];
-
-    setCover(album?.image || '');
-
-    // Keep explicit cover for "Без стенда" and do not override it from ID3.
-    if (album?.id === 'bez-standa') {
-      return () => {
-        isMounted = false;
-      };
-    }
-
-    if (!firstTrack?.mediaurl) {
-      return () => {
-        isMounted = false;
-      };
-    }
 
     getAudioMetadata(firstTrack.mediaurl)
       .then(({ coverUrl }) => {
@@ -31,7 +24,7 @@ const useAlbumCover = (album: IAlbum | null | undefined): string => {
           return;
         }
 
-        setCover(coverUrl);
+        setFetchedByAlbumId((prev) => ({ ...prev, [albumId]: coverUrl }));
       })
       .catch(() => {
         // Keep fallback album image.
@@ -40,9 +33,21 @@ const useAlbumCover = (album: IAlbum | null | undefined): string => {
     return () => {
       isMounted = false;
     };
-  }, [album?.id, album?.image, album?.tracks]);
+  }, [albumId, firstTrack?.mediaurl, firstTrackStaticCover]);
 
-  return cover;
+  if (!album) {
+    return '';
+  }
+
+  if (album.id === 'bez-standa') {
+    return baseImage;
+  }
+
+  if (firstTrack?.staticCoverUrl) {
+    return firstTrack.staticCoverUrl;
+  }
+
+  return (albumId && fetchedByAlbumId[albumId]) || baseImage;
 };
 
 export default useAlbumCover;

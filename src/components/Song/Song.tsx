@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
+
 import { getAudioMetadata } from '../../utils/audioMetadata';
 
 // hooks
@@ -8,7 +9,7 @@ import useTrack from '../../hooks/useTrack';
 import useAlbumCover from '../../hooks/useAlbumCover';
 
 // types
-import { IAlbum, ITrack } from '../../types/types';
+import type { IAlbum, ITrack } from '../../types/types';
 
 // interfaces
 interface IProps {
@@ -17,21 +18,23 @@ interface IProps {
   playing: boolean;
 }
 
-const Song: React.FC<IProps> = ({ album, track, playing }) => {
-  const { handlePlayPause } = useTrack();
-  const albumCover = useAlbumCover(album);
-  const [metadataCover, setMetadataCover] = useState<string | null>(null);
+const SongThumbnail: React.FC<{ track: ITrack; albumCover: string }> = ({ track, albumCover }) => {
+  const [blobCover, setBlobCover] = useState<string | null>(null);
 
   useEffect(() => {
+    if (track.staticCoverUrl || !track.mediaurl) {
+      return;
+    }
+
     let isMounted = true;
-    setMetadataCover(null);
 
     getAudioMetadata(track.mediaurl)
       .then(({ coverUrl }) => {
         if (!isMounted || !coverUrl) {
           return;
         }
-        setMetadataCover(coverUrl);
+
+        setBlobCover(coverUrl);
       })
       .catch(() => {
         // Keep album cover as fallback.
@@ -40,7 +43,23 @@ const Song: React.FC<IProps> = ({ album, track, playing }) => {
     return () => {
       isMounted = false;
     };
-  }, [track.mediaurl]);
+  }, [track.mediaurl, track.staticCoverUrl]);
+
+  const url = track.staticCoverUrl ?? blobCover ?? albumCover;
+
+  return (
+    <div
+      className='image'
+      style={{
+        backgroundImage: `url(${url})`,
+      }}
+    />
+  );
+};
+
+const Song: React.FC<IProps> = ({ album, track, playing }) => {
+  const { handlePlayPause } = useTrack();
+  const albumCover = useAlbumCover(album);
 
   return (
     <Link
@@ -52,12 +71,7 @@ const Song: React.FC<IProps> = ({ album, track, playing }) => {
       }}
       className='song flex flex-gap flex-v-center active-opacity'
     >
-      <div
-        className='image'
-        style={{
-          backgroundImage: `url(${metadataCover || albumCover})`,
-        }}
-      />
+      <SongThumbnail key={track.id} track={track} albumCover={albumCover} />
       <div className='flex flex-1 flex-gap-small flex-v-center name'>
         <div className='flex flex-1 flex-gap-small flex-v-center'>
           <strong>{track.name}</strong>

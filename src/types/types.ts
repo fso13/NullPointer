@@ -14,6 +14,9 @@ export interface ITrack {
   mediaurl: string;
   explicit: boolean;
   playcount: string;
+  /** From build-time extract (`npm run build` runs scripts/extractTrackMedia.mjs). */
+  staticCoverUrl?: string;
+  staticDurationSec?: number;
 }
 
 export interface IAlbum {
