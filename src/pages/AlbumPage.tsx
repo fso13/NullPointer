@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';
 
+// hooks
+import useAlbumCover from '../hooks/useAlbumCover';
+
 // components
 import Cover from '../components/Cover/Cover';
 import Search from '../components/Search/Search';
@@ -26,12 +29,14 @@ const AlbumPage: React.FC = () => {
     }
   }, [id]);
 
+  const albumCover = useAlbumCover(currentAlbumData);
+
   if (!currentAlbumData) {
     return <div>Album not found</div>;
   }
 
   return (
-    <Cover image={currentAlbumData.image}>
+    <Cover image={albumCover}>
       <Search />
       <Information album={currentAlbumData} />
     </Cover>

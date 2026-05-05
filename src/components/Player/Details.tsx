@@ -2,15 +2,19 @@ import { Link } from 'react-router-dom';
 
 // hooks
 import useTrack from '../../hooks/useTrack';
+import useAlbumCover from '../../hooks/useAlbumCover';
+import useTrackCover from '../../hooks/useTrackCover';
 
 const Details: React.FC = () => {
   const { currentTrack, currentAlbum } = useTrack();
+  const albumCover = useAlbumCover(currentAlbum);
+  const trackCover = useTrackCover(currentTrack || null, albumCover);
 
   if (currentTrack && currentAlbum) {
     return (
       <div className='player-information flex flex-gap flex-grow flex-h-center flex-v-center'>
         <Link to={`/album/${currentAlbum.id}`} className='active-opacity'>
-          <div className='mini-image' style={{ backgroundImage: `url(${currentAlbum.image})` }} />
+          <div className='mini-image' style={{ backgroundImage: `url(${trackCover})` }} />
         </Link>
         <div className='track-info flex flex-column'>
           <div className='flex flex-gap-small flex-v-center'>

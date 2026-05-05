@@ -1,7 +1,11 @@
+import { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
+import { getAudioMetadata } from '../../utils/audioMetadata';
 
 // hooks
 import useTrack from '../../hooks/useTrack';
+import useAlbumCover from '../../hooks/useAlbumCover';
 
 // types
 import { IAlbum, ITrack } from '../../types/types';
@@ -15,6 +19,28 @@ interface IProps {
 
 const Song: React.FC<IProps> = ({ album, track, playing }) => {
   const { handlePlayPause } = useTrack();
+  const albumCover = useAlbumCover(album);
+  const [metadataCover, setMetadataCover] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    setMetadataCover(null);
+
+    getAudioMetadata(track.mediaurl)
+      .then(({ coverUrl }) => {
+        if (!isMounted || !coverUrl) {
+          return;
+        }
+        setMetadataCover(coverUrl);
+      })
+      .catch(() => {
+        // Keep album cover as fallback.
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [track.mediaurl]);
 
   return (
     <Link
@@ -29,7 +55,7 @@ const Song: React.FC<IProps> = ({ album, track, playing }) => {
       <div
         className='image'
         style={{
-          backgroundImage: `url(${album.image})`,
+          backgroundImage: `url(${metadataCover || albumCover})`,
         }}
       />
       <div className='flex flex-1 flex-gap-small flex-v-center name'>

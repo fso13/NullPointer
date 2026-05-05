@@ -4,6 +4,7 @@ import type { ITrack } from '../../types/types';
 // interfaces
 interface IProps {
   track: ITrack;
+  duration?: string;
   playing?: boolean;
   selected?: boolean;
   handlePlayPause: () => void;
@@ -11,6 +12,7 @@ interface IProps {
 
 const TrackLine: React.FC<IProps> = ({
   track,
+  duration,
   handlePlayPause,
   playing = false,
   selected = false,
@@ -56,7 +58,7 @@ const TrackLine: React.FC<IProps> = ({
         <em>{track.playcount} Plays</em>
       </div>
     </div>
-    <span>{track.duration}</span>
+    <span>{duration || track.duration}</span>
   </div>
 );
 
