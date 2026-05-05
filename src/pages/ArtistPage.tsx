@@ -10,7 +10,7 @@ import Albums from '../components/Artist/Albums';
 import Header from '../components/Artist/Header';
 
 // data
-import albumData from '../data/albumData.json';
+import albumData from '../data/albumData';
 
 const ArtistPage: React.FC = () => {
   const { currentState, currentTrack } = useTrack();

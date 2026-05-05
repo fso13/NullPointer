@@ -6,7 +6,7 @@ import Search from '../components/Search/Search';
 import type { IAlbum } from '../types/types';
 
 // data
-import albumData from '../data/albumData.json';
+import albumData from '../data/albumData';
 
 const AlbumsPage: React.FC = () => (
   <div className='albums flex flex-column flex-gap no-select'>

@@ -14,7 +14,7 @@ import Information from '../components/Information/Information';
 import type { IAlbum } from '../types/types';
 
 // data
-import albumData from '../data/albumData.json';
+import albumData from '../data/albumData';
 
 const AlbumPage: React.FC = () => {
   const { id } = useParams();

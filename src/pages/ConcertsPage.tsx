@@ -7,7 +7,7 @@ import useAlbumCover from '../hooks/useAlbumCover';
 import Header from '../components/Artist/Header';
 
 // data
-import albumData from '../data/albumData.json';
+import albumData from '../data/albumData';
 
 const TOUR_DATES = [
   { date: '01.09.2026', city: 'Москва', venue: 'VK Play Live Arena (Virtual Stage)' },
