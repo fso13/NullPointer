@@ -1,6 +1,7 @@
 {
   "name": "react-music-player",
   "version": "0.1.1",
+  "homepage": "https://fso13.github.io/NullPointer",
   "private": true,
   "dependencies": {
     "music-metadata-browser": "^2.5.11",
