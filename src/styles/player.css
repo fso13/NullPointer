@@ -724,6 +724,66 @@ strong,
   text-decoration: underline;
 }
 
+.artist-nav-active h2 {
+  color: #ffffff;
+  text-decoration-thickness: 2px;
+}
+
+.artist-bio {
+  padding-bottom: 24px;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.artist-bio .artist-bio-main-title {
+  font-size: 1.75em;
+  margin-bottom: 0.65em;
+}
+
+.artist-bio h3 {
+  font-size: 1.25em;
+  margin-top: 0.25em;
+  margin-bottom: 0.55em;
+}
+
+.artist-bio p {
+  font-size: 0.95em;
+  line-height: 1.55;
+  margin-bottom: 0.85em;
+  color: #e8e8e8;
+}
+
+.artist-bio p strong {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.artist-bio-rule {
+  border: 0;
+  border-top: 1px solid #2c2c2c;
+  margin: 1.35em 0;
+}
+
+.artist-bio-list {
+  margin: 0 0 1em 1.1em;
+  list-style-type: disc;
+  padding: 0;
+}
+
+.artist-bio-list li {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 0.35em;
+  color: #e8e8e8;
+}
+
+.artist-bio-summary {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background-color: rgba(0, 0, 0, 0.22);
+}
+
 .concerts .concerts-headline h3 {
   font-size: 1.3em;
 }

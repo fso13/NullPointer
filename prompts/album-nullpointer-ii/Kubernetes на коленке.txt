@@ -1,0 +1,7 @@
+ПЕСНЯ: Kubernetes на коленке
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Русский текст, NullPointer. Дополнительная айтишная тема: оркестрация и «поломанный» кластер — поды перезапускаются, Helm как заклинание, мониторинг орёт, все гуглят один и тот же Stack Overflow. Сатира на модность решений «потому что все так делают». Припев — про то, что болело ещё на одном сервере, а стало больнее на восьми нодах. Лирика умная, без пошаговых эксплойтов.
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Chaotic hard Russian rock, 148 BPM, relentless eighth-note guitar chug, double-kick feel on drums (can be programmed), call-and-response vocals in pre-chorus, abrupt half-time breakdown, aggressive mix.

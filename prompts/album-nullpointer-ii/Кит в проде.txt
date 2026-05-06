@@ -1,0 +1,7 @@
+ПЕСНЯ: Кит в проде
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Русский текст, NullPointer. Тема: Docker и контейнеры в продакшене — образ собрался локально, на сервере «ничего не совпало», volumes, «просто задеплой», киты и докеры как мифология. Юмор абсурда: контейнер как чемодан без ручки, зависимости как матрёшка. Припев простой и танцевальный по слогам (можно играть с созвучием Docker/rock). Избегай реальных уязвимостей как инструкций — только бытовые DevOps-боли.
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Russian indie-rock with sarcastic attitude, 126 BPM, tight groovy bass, angular guitar stabs, half-spoken verses about tech jargon, anthemic singalong chorus, punchy snare, subtle synth zap accents.

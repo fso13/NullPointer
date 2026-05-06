@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 // hooks
 import useTrack from '../hooks/useTrack';
 import useAlbumCover from '../hooks/useAlbumCover';
@@ -8,6 +6,7 @@ import useAlbumCover from '../hooks/useAlbumCover';
 import Song from '../components/Song/Song';
 import Albums from '../components/Artist/Albums';
 import Header from '../components/Artist/Header';
+import ArtistSectionNav from '../components/Artist/ArtistSectionNav';
 
 // data
 import albumData from '../data/albumData';
@@ -37,14 +36,7 @@ const ArtistPage: React.FC = () => {
       <Header artist={artist} coverImage={artistCover} />
       <section className='container flex flex-column flex-gap'>
         <div className='flex flex-space-between flex-v-center'>
-          <div className='flex flex-gap'>
-            <Link to='/' className='active-opacity underline'>
-              <h2>Songs</h2>
-            </Link>
-            <Link to={`/concerts/${artist.id}`} className='active-opacity underline'>
-              <h2>Концерты</h2>
-            </Link>
-          </div>
+          <ArtistSectionNav artistId={artist.id} />
         </div>
         <div className='flex flex-column'>
           {featuredSongs.map(({ album, track }) => (

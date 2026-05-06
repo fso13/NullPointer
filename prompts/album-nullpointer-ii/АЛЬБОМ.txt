@@ -1,0 +1,10 @@
+НАЗВАНИЕ АЛЬБОМА
+«На моей машине работает»
+(англ. подзаголовок для обложки/сторона B: Works on My Machine)
+
+Концепция: второй студийный альбом русской IT-рок группы NullPointer — сатира про офис, найм, Agile, «бизнес знает лучше пользователя», псевдоактивность менеджмента и инфраструктурный ад (Docker, CI/CD). Юмор колкий, без цензурной матовины на каждой строке — остро через образы и жаргон; припевы цепляющие, куплеты конкретные.
+
+
+ПРОМПТ ДЛЯ ГЕНЕРАЦИИ ОБЛОЖКИ АЛЬБОМА (изображение / концепт-арт)
+
+Album cover art for Russian IT-rock band “NullPointer”, title text «На моей машине работает» plus small subtitle “Works on My Machine”. Dark humorous corporate dystopia meets underground rock poster aesthetics: cracked laptop screen showing green “build passed” sticker next to burning production server rack; Docker whale silhouette made of tangled cables; sprint board sticky notes falling like ash; silhouettes of managers applauding each other in empty glass meeting room; one exhausted developer with headphones in foreground, lit by monitor glow. Color palette: deep charcoal, toxic green accents, alarm red highlights, subtle glitch chromatic aberration on edges. Style: vector-meets-painted texture, high contrast, readable typography, vinyl LP gatefold composition, no photorealistic celebrity faces, no copyrighted logos (use generic icons).

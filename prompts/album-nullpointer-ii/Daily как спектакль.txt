@@ -1,0 +1,7 @@
+ПЕСНЯ: Daily как спектакль
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Русский текст, NullPointer. Дополнение к Agile‑линии: дейли стендапы как театр — все отчитываются одинаково, блокеры те же три недели, Scrum Master записывает вежливость. Короткие реплики как репризы; финал — «перенесём в офлайн чат». Юмор узнаваемый удалёнщикам и гибриду.
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Russian indie-rock with sarcastic attitude, 124 BPM, muted funk guitar scratch verses, explosive chorus with open chords, tight rimshot verses, backing vocals whispering corporate phrases panning left-right.

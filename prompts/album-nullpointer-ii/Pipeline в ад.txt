@@ -1,0 +1,7 @@
+ПЕСНЯ: Pipeline в ад
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Текст на русском, NullPointer. Тема: CI/CD — красная сборка, флакующие тесты, «повторим джоб», секреты в переменных, npm audit как фоновый шум, релизной ветке конец. Куплеты как череда экранов лога; припев про зелёную галочку как святой Грааль. Можно смешать русский с точечными английскими терминами build/deploy/stage (как в реальной речи команд).
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Dark Russian grunge rock, 120 BPM, gnarly downtuned guitars, pounding kick-snare, claustrophobic verses, wide open shouting chorus, glitchy noise FX tails between sections.

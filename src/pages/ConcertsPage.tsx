@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
-
 // hooks
 import useAlbumCover from '../hooks/useAlbumCover';
 
 // components
 import Header from '../components/Artist/Header';
+import ArtistSectionNav from '../components/Artist/ArtistSectionNav';
 
 // data
 import albumData from '../data/albumData';
@@ -24,7 +23,11 @@ const TOUR_DATES = [
   { date: '23.09.2026', city: 'Алматы', venue: 'Steppe Noise Arena (Online)' },
   { date: '25.09.2026', city: 'Ереван', venue: 'Ararat Stream Club' },
   { date: '27.09.2026', city: 'Тбилиси', venue: 'Tbilisi Electric VR Stage' },
-  { date: '30.09.2026', city: 'Финал', venue: 'Worldwide Livestream — "Хуяк — и в продакшен LIVE"' },
+  {
+    date: '30.09.2026',
+    city: 'Финал',
+    venue: 'Worldwide Livestream — "Хуяк — и в продакшен LIVE"',
+  },
 ];
 
 const ConcertsPage: React.FC = () => {
@@ -40,14 +43,7 @@ const ConcertsPage: React.FC = () => {
       <Header artist={artist} coverImage={artistCover} />
       <section className='container flex flex-column flex-gap'>
         <div className='flex flex-space-between flex-v-center'>
-          <div className='flex flex-gap'>
-            <Link to='/' className='active-opacity underline'>
-              <h2>Songs</h2>
-            </Link>
-            <Link to={`/concerts/${artist.id}`} className='active-opacity underline'>
-              <h2>Концерты</h2>
-            </Link>
-          </div>
+          <ArtistSectionNav artistId={artist.id} />
         </div>
 
         <div className='concerts flex flex-column flex-gap'>
@@ -56,7 +52,10 @@ const ConcertsPage: React.FC = () => {
             <span className='concerts-count'>{TOUR_DATES.length} дат</span>
           </div>
           {TOUR_DATES.map((item) => (
-            <div key={`${item.date}-${item.city}`} className='concert-item flex flex-v-center flex-space-between'>
+            <div
+              key={`${item.date}-${item.city}`}
+              className='concert-item flex flex-v-center flex-space-between'
+            >
               <div className='concert-date'>{item.date}</div>
               <div className='concert-details flex flex-column'>
                 <strong>{item.city}</strong>

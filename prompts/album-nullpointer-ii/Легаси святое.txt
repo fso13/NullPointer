@@ -1,0 +1,7 @@
+ПЕСНЯ: Легаси святое
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Текст на русском, NullPointer. Тема: легаси‑код и техдолг — «не трогай, оно работает», автор уволился пять лет назад, комментарии на языке шепота. Ностальгия по стеку, который никто не выберет сегодня. Припев мелодичный, почти лирический; контраст с безумными деталями в куплетах (магические числа, if true). Связь с предыдущими темами: именно такие системы потом «лечат» Agile‑процессом месяцами.
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Emotional Russian alternative rock ballad, 96 BPM, chorus electric guitar swells, verses fingerpicked clean tone, restrained drums until chorus, vulnerable male vocal, ethereal reverb on backing oohs.

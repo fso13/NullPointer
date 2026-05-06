@@ -5,6 +5,7 @@ import AlbumPage from '../pages/AlbumPage';
 import ArtistPage from '../pages/ArtistPage';
 import AlbumsPage from '../pages/AlbumsPage';
 import ConcertsPage from '../pages/ConcertsPage';
+import AboutPage from '../pages/AboutPage';
 
 const Navigation: React.FC = () => (
   <Routes>
@@ -13,6 +14,7 @@ const Navigation: React.FC = () => (
     <Route path='/artist/:id' element={<ArtistPage />} />
     <Route path='/albums/:id' element={<AlbumsPage />} />
     <Route path='/concerts/:id' element={<ConcertsPage />} />
+    <Route path='/about/:id' element={<AboutPage />} />
   </Routes>
 );
 

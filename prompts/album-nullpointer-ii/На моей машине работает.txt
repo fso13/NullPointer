@@ -1,0 +1,7 @@
+ПЕСНЯ: На моей машине работает
+
+ПРОМПТ ДЛЯ ТЕКСТА (лирика / Suno / Udio / LLM)
+Финальный трек альбома с тем же названием. Русский текст + в припеве можно один раз дать английскую фразу «works on my machine» как ударный хук. Тема: локально всё зелёное, у коллеги билд падает; окружения, версии Node, «у меня так не воспроизводится» — символ профессиональной солипсизма и одновременно общей боли. Тон: от смеха до лёгкой тоски; финал — все поют припев вместе (образно «вся команда»). Это должен ощущаться как финал пластинки.
+
+ПРОМПТ ДЛЯ СТИЛЯ И ЗВУЧАНИЯ
+Anthemic Russian rock finale, 126 BPM, wide guitars, steady driving drums, emotional male vocal, uplifting chorus with gang backing vocals, hopeful but gritty tone, album-closer energy, last chorus key lift optional.

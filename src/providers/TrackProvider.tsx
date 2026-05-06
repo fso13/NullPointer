@@ -6,6 +6,15 @@ import TrackContext from '../contexts/TrackContext';
 // types
 import type { IAlbum, ITrack } from '../types/types';
 
+function absoluteArtworkUrl(url: string | undefined): string | undefined {
+  if (!url || typeof window === 'undefined') return undefined;
+  try {
+    return new URL(url, window.location.href).href;
+  } catch {
+    return url;
+  }
+}
+
 // interfaces
 interface IProps {
   children: React.ReactNode;
@@ -207,6 +216,102 @@ const TrackProvider: React.FC<IProps> = ({ children }) => {
       audioElement.currentTime = e.currentTarget.valueAsNumber;
     }
   };
+
+  const sessionRef = useRef({
+    prevTrack,
+    nextTrack,
+    currentTrack,
+    currentAlbum,
+    currentState,
+  });
+
+  sessionRef.current = {
+    prevTrack,
+    nextTrack,
+    currentTrack,
+    currentAlbum,
+    currentState,
+  };
+
+  const handlePlayPauseRef = useRef(handlePlayPause);
+  handlePlayPauseRef.current = handlePlayPause;
+
+  useEffect(() => {
+    if (!('mediaSession' in navigator) || !navigator.mediaSession) return undefined;
+
+    const ms = navigator.mediaSession;
+
+    const safeSetHandler = (
+      action: Parameters<MediaSession['setActionHandler']>[0],
+      handler: (() => void) | null,
+    ): void => {
+      try {
+        ms.setActionHandler(action, handler);
+      } catch {
+        /* unsupported action in this browser */
+      }
+    };
+
+    safeSetHandler('previoustrack', () => {
+      const { prevTrack: prev, currentAlbum: album } = sessionRef.current;
+      if (prev && album) handlePlayPauseRef.current(prev, album);
+    });
+
+    safeSetHandler('nexttrack', () => {
+      const { nextTrack: next, currentAlbum: album } = sessionRef.current;
+      if (next && album) handlePlayPauseRef.current(next, album);
+    });
+
+    safeSetHandler('play', () => {
+      const { currentTrack: track, currentAlbum: album, currentState: state } = sessionRef.current;
+      if (track && album && state !== 'playing') handlePlayPauseRef.current(track, album);
+    });
+
+    safeSetHandler('pause', () => {
+      audioRef.current?.pause();
+    });
+
+    return () => {
+      safeSetHandler('previoustrack', null);
+      safeSetHandler('nexttrack', null);
+      safeSetHandler('play', null);
+      safeSetHandler('pause', null);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!('mediaSession' in navigator) || !navigator.mediaSession) return;
+
+    const ms = navigator.mediaSession;
+
+    if (!currentTrack || !currentAlbum) {
+      ms.metadata = null;
+      ms.playbackState = 'none';
+      return;
+    }
+
+    const cover = absoluteArtworkUrl(currentTrack.staticCoverUrl ?? currentAlbum.image);
+
+    ms.metadata = new MediaMetadata({
+      title: currentTrack.name,
+      artist: currentAlbum.artist.name,
+      album: currentAlbum.name,
+      artwork: cover ? [{ src: cover, sizes: '512x512', type: 'image/jpeg' }] : [],
+    });
+  }, [currentTrack, currentAlbum]);
+
+  useEffect(() => {
+    if (!('mediaSession' in navigator) || !navigator.mediaSession) return;
+
+    const ms = navigator.mediaSession;
+
+    if (!currentTrack) {
+      ms.playbackState = 'none';
+      return;
+    }
+
+    ms.playbackState = currentState === 'playing' ? 'playing' : 'paused';
+  }, [currentState, currentTrack]);
 
   const providerValue = {
     muted,
