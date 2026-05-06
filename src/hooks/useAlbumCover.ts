@@ -12,7 +12,13 @@ const useAlbumCover = (album: IAlbum | null | undefined): string => {
   const [fetchedByAlbumId, setFetchedByAlbumId] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    if (!albumId || albumId === 'bez-standa' || firstTrackStaticCover || !firstTrack?.mediaurl) {
+    if (
+      !albumId ||
+      albumId === 'bez-standa' ||
+      albumId === 'na-moej-mashine-rabotaet' ||
+      firstTrackStaticCover ||
+      !firstTrack?.mediaurl
+    ) {
       return;
     }
 
@@ -39,7 +45,7 @@ const useAlbumCover = (album: IAlbum | null | undefined): string => {
     return '';
   }
 
-  if (album.id === 'bez-standa') {
+  if (album.id === 'bez-standa' || album.id === 'na-moej-mashine-rabotaet') {
     return baseImage;
   }
 

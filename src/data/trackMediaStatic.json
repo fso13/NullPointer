@@ -1,4 +1,44 @@
 {
+  "na-moej-mashine-01": {
+    "durationSec": 258.024,
+    "coverUrl": "/static/track-covers/na-moej-mashine-01.jpg"
+  },
+  "na-moej-mashine-02": {
+    "durationSec": 204.912,
+    "coverUrl": "/static/track-covers/na-moej-mashine-02.jpg"
+  },
+  "na-moej-mashine-03": {
+    "durationSec": 264.192,
+    "coverUrl": "/static/track-covers/na-moej-mashine-03.jpg"
+  },
+  "na-moej-mashine-04": {
+    "durationSec": 203.76,
+    "coverUrl": "/static/track-covers/na-moej-mashine-04.jpg"
+  },
+  "na-moej-mashine-05": {
+    "durationSec": 268.68,
+    "coverUrl": "/static/track-covers/na-moej-mashine-05.jpg"
+  },
+  "na-moej-mashine-06": {
+    "durationSec": 244.992,
+    "coverUrl": "/static/track-covers/na-moej-mashine-06.jpg"
+  },
+  "na-moej-mashine-07": {
+    "durationSec": 272.184,
+    "coverUrl": "/static/track-covers/na-moej-mashine-07.jpg"
+  },
+  "na-moej-mashine-08": {
+    "durationSec": 213,
+    "coverUrl": "/static/track-covers/na-moej-mashine-08.jpg"
+  },
+  "na-moej-mashine-09": {
+    "durationSec": 256.92,
+    "coverUrl": "/static/track-covers/na-moej-mashine-09.jpg"
+  },
+  "na-moej-mashine-10": {
+    "durationSec": 134.904,
+    "coverUrl": "/static/track-covers/na-moej-mashine-10.jpg"
+  },
   "bez-standa-01": {
     "durationSec": 192.864,
     "coverUrl": "/static/track-covers/bez-standa-01.jpg"

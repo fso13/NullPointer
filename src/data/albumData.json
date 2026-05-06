@@ -1,5 +1,113 @@
 [
   {
+    "id": "na-moej-mashine-rabotaet",
+    "year": 2026,
+    "name": "На моей машине работает",
+    "songs": 10,
+    "minutes": 39,
+    "explicit": false,
+    "image": "/data/na-moej-mashine-rabotaet/cover.png",
+    "artist": {
+      "id": "nullpoint",
+      "name": "NullPoint",
+      "image": "/data/YI5mY.jpg",
+      "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
+      "monthlyListeners": "42K"
+    },
+    "tracks": [
+      {
+        "id": "na-moej-mashine-01",
+        "no": 1,
+        "name": "На моей машине работает",
+        "duration": "4:18",
+        "playcount": "18K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/На моей машине работает.mp3"
+      },
+      {
+        "id": "na-moej-mashine-02",
+        "no": 2,
+        "name": "Daily как спектакль",
+        "duration": "3:25",
+        "playcount": "11K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Daily как спектакль.mp3"
+      },
+      {
+        "id": "na-moej-mashine-03",
+        "no": 3,
+        "name": "Четыре месяца спринта",
+        "duration": "4:24",
+        "playcount": "14K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Четыре месяца спринта.mp3"
+      },
+      {
+        "id": "na-moej-mashine-04",
+        "no": 4,
+        "name": "Синхрон по похвале",
+        "duration": "3:24",
+        "playcount": "9K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Синхрон по похвале.mp3"
+      },
+      {
+        "id": "na-moej-mashine-05",
+        "no": 5,
+        "name": "Бизнес всегда прав",
+        "duration": "4:29",
+        "playcount": "16K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Бизнес всегда прав.mp3"
+      },
+      {
+        "id": "na-moej-mashine-06",
+        "no": 6,
+        "name": "Pipeline в ад",
+        "duration": "4:05",
+        "playcount": "12K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Pipeline в ад.mp3"
+      },
+      {
+        "id": "na-moej-mashine-07",
+        "no": 7,
+        "name": "Kubernetes на коленке",
+        "duration": "4:32",
+        "playcount": "21K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Kubernetes на коленке.mp3"
+      },
+      {
+        "id": "na-moej-mashine-08",
+        "no": 8,
+        "name": "Кит в проде",
+        "duration": "3:33",
+        "playcount": "15K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Кит в проде.mp3"
+      },
+      {
+        "id": "na-moej-mashine-09",
+        "no": 9,
+        "name": "Легаси святое",
+        "duration": "4:17",
+        "playcount": "10K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Легаси святое.mp3"
+      },
+      {
+        "id": "na-moej-mashine-10",
+        "no": 10,
+        "name": "Код Моей Мечты",
+        "duration": "2:15",
+        "playcount": "24K",
+        "explicit": false,
+        "mediaurl": "/data/na-moej-mashine-rabotaet/Код Моей Мечты.mp3"
+      }
+    ]
+  },
+  {
     "id": "bez-standa",
     "year": 2022,
     "name": "Без стенда",
