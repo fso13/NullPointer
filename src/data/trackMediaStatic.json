@@ -90,5 +90,9 @@
   "rzhavyj-kod-01": {
     "durationSec": 203.04,
     "coverUrl": "/static/track-covers/rzhavyj-kod-01.jpg"
+  },
+  "snova-backend-01": {
+    "durationSec": 162.264,
+    "coverUrl": "/static/track-covers/snova-backend-01.jpg"
   }
 }

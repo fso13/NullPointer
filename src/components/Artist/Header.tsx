@@ -7,12 +7,11 @@ import { IArtist } from '../../types/types';
 // interfaces
 interface IProps {
   artist: IArtist;
-  coverImage?: string;
 }
 
-const Header: React.FC<IProps> = ({ artist, coverImage }) => (
+const Header: React.FC<IProps> = ({ artist }) => (
     <section
-      style={{ backgroundImage: `url(${coverImage || artist.image})` }}
+      style={{ backgroundImage: `url(${artist.image})` }}
       className='artist-cover flex flex-column flex-h-end'
     >
       <div className='artist-gradient'>

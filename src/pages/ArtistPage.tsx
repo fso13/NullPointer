@@ -1,6 +1,5 @@
 // hooks
 import useTrack from '../hooks/useTrack';
-import useAlbumCover from '../hooks/useAlbumCover';
 
 // components
 import Song from '../components/Song/Song';
@@ -14,7 +13,6 @@ import albumData from '../data/albumData';
 const ArtistPage: React.FC = () => {
   const { currentState, currentTrack } = useTrack();
   const artist = albumData[0]?.artist;
-  const artistCover = useAlbumCover(albumData[0] || null);
 
   const albumTracks = albumData
     .filter((album) => album.songs > 1)
@@ -33,7 +31,7 @@ const ArtistPage: React.FC = () => {
 
   return (
     <div className='artist flex flex-column flex-gap no-select'>
-      <Header artist={artist} coverImage={artistCover} />
+      <Header artist={artist} />
       <section className='container flex flex-column flex-gap'>
         <div className='flex flex-space-between flex-v-center'>
           <ArtistSectionNav artistId={artist.id} />

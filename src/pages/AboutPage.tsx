@@ -1,8 +1,5 @@
 import { useParams } from 'react-router-dom';
 
-// hooks
-import useAlbumCover from '../hooks/useAlbumCover';
-
 // components
 import Header from '../components/Artist/Header';
 import ArtistSectionNav from '../components/Artist/ArtistSectionNav';
@@ -15,7 +12,6 @@ const AboutPage: React.FC = () => {
   const { id } = useParams();
   const artistFromRoute = albumData.find((album) => album.artist.id === id)?.artist;
   const artist = artistFromRoute ?? albumData[0]?.artist;
-  const artistCover = useAlbumCover(albumData[0] || null);
 
   if (!artist) {
     return <div>Artist not found</div>;
@@ -23,7 +19,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className='artist flex flex-column flex-gap no-select'>
-      <Header artist={artist} coverImage={artistCover} />
+      <Header artist={artist} />
       <section className='container flex flex-column flex-gap'>
         <div className='flex flex-space-between flex-v-center'>
           <ArtistSectionNav artistId={artist.id} />

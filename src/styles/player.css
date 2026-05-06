@@ -287,7 +287,23 @@ input[type='range' i]::-webkit-slider-thumb {
   text-decoration: underline;
 }
 
-#root,
+#root {
+  min-height: 100vh;
+}
+
+/* TrackProvider renders <audio> as sibling of app shell — keep it out of layout */
+#root > audio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
 .full-h {
   height: 100vh;
 }
@@ -651,6 +667,7 @@ strong,
 .artist-cover {
   width: 100%;
   height: 350px;
+  background-color: #111111;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;

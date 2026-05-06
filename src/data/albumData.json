@@ -10,7 +10,7 @@
     "artist": {
       "id": "nullpoint",
       "name": "NullPoint",
-      "image": "/data/YI5mY.jpg",
+      "image": "/data/cover2.png",
       "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
       "monthlyListeners": "42K"
     },
@@ -118,7 +118,7 @@
     "artist": {
       "id": "nullpoint",
       "name": "NullPoint",
-      "image": "/data/YI5mY.jpg",
+      "image": "/data/cover2.png",
       "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
       "monthlyListeners": "42K"
     },
@@ -235,7 +235,7 @@
     "artist": {
       "id": "nullpoint",
       "name": "NullPoint",
-      "image": "/data/YI5mY.jpg",
+      "image": "/data/cover2.png",
       "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
       "monthlyListeners": "42K"
     },
@@ -262,7 +262,7 @@
     "artist": {
       "id": "nullpoint",
       "name": "NullPoint",
-      "image": "/data/YI5mY.jpg",
+      "image": "/data/cover2.png",
       "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
       "monthlyListeners": "42K"
     },
@@ -275,6 +275,33 @@
         "playcount": "8K",
         "explicit": false,
         "mediaurl": "/data/Ржавый Код.mp3"
+      }
+    ]
+  },
+  {
+    "id": "snova-backend-single",
+    "year": 2026,
+    "name": "Снова Backend",
+    "songs": 1,
+    "minutes": 3,
+    "explicit": false,
+    "image": "/data/cover2.png",
+    "artist": {
+      "id": "nullpoint",
+      "name": "NullPoint",
+      "image": "/data/cover2.png",
+      "description": "NullPoint - российская рок-группа из Екатеринбурга, собранная в 2018 году после провального ночного релиза.",
+      "monthlyListeners": "42K"
+    },
+    "tracks": [
+      {
+        "id": "snova-backend-01",
+        "no": 1,
+        "name": "Снова Backend",
+        "duration": "2:42",
+        "playcount": "6K",
+        "explicit": false,
+        "mediaurl": "/data/Снова Backend.mp3"
       }
     ]
   }
