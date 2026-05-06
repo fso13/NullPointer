@@ -48,7 +48,6 @@ const ArtistPage: React.FC = () => {
         </div>
       </section>
       <Albums url={`/albums/${artist.id}`} title='Albums' albums={albumData} />
-      <Albums url={`/albums/${artist.id}`} title='Featured on' albums={albumData} />
     </div>
   );
 };
