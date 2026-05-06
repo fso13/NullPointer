@@ -17,7 +17,6 @@ const Header: React.FC<IProps> = ({ artist }) => (
       <div className='artist-gradient'>
         <Search />
         <div className='container'>
-          <p className='text-shadow'>{artist.description}</p>
           <div className='buttons flex flex-gap-small flex-h-center flex-v-center'>
             <span className='flex flex-1 flex-h-start text-shadow'>
               {artist.monthlyListeners} monthly listeners
