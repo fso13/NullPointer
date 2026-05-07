@@ -746,6 +746,15 @@ strong,
   text-decoration-thickness: 2px;
 }
 
+.artist-section-nav {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.artist-section-nav a {
+  flex-shrink: 1;
+}
+
 .artist-bio {
   padding-bottom: 24px;
   user-select: text;
@@ -973,6 +982,13 @@ strong,
 }
 
 @media (max-width: 750px) {
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   .player .player-container {
     padding: 0 10px;
   }
@@ -1012,6 +1028,54 @@ strong,
   .song .album-name {
     flex: unset;
   }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .search-container input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .artist-section-nav {
+    gap: 10px;
+  }
+
+  .artist-section-nav h2 {
+    font-size: 1.2em;
+  }
+
+  .song {
+    overflow: hidden;
+  }
+
+  .song .name,
+  .song .name > div,
+  .song .artist-name,
+  .song .album-name {
+    min-width: 0;
+  }
+
+  .song .name strong,
+  .song .artist-name span,
+  .song .album-name span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .concert-item {
+    align-items: flex-start;
+  }
+
+  .concert-item .concert-date {
+    width: auto;
+  }
+
+  .concert-item .concert-status {
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1031,6 +1095,14 @@ strong,
 }
 
 @media (max-width: 450px) {
+  .artist-section-nav {
+    justify-content: space-between;
+  }
+
+  .artist-section-nav h2 {
+    font-size: 1em;
+  }
+
   .song .play-count {
     display: none;
   }

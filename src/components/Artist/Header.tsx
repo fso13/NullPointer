@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 // components
 import Search from '../Search/Search';
 
@@ -9,9 +11,27 @@ interface IProps {
   artist: IArtist;
 }
 
-const Header: React.FC<IProps> = ({ artist }) => (
+const MOBILE_COVER_BREAKPOINT = 750;
+const MOBILE_COVER_IMAGE = `${process.env.PUBLIC_URL || ''}/data/YI5mY.jpg`;
+
+const Header: React.FC<IProps> = ({ artist }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_COVER_BREAKPOINT}px)`);
+    const handleChange = (event: MediaQueryListEvent) => setIsMobile(event.matches);
+
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  const coverImage = isMobile ? MOBILE_COVER_IMAGE : artist.image;
+
+  return (
     <section
-      style={{ backgroundImage: `url(${artist.image})` }}
+      style={{ backgroundImage: `url(${coverImage})` }}
       className='artist-cover flex flex-column flex-h-end'
     >
       <div className='artist-gradient'>
@@ -25,6 +45,7 @@ const Header: React.FC<IProps> = ({ artist }) => (
         </div>
       </div>
     </section>
-);
+  );
+};
 
 export default Header;

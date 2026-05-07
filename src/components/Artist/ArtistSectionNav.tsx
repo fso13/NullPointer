@@ -5,7 +5,7 @@ type Props = {
 };
 
 const ArtistSectionNav: React.FC<Props> = ({ artistId }) => (
-  <div className='flex flex-gap'>
+  <div className='artist-section-nav flex flex-gap'>
     <NavLink
       to='/'
       end
