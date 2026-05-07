@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NullPointer</title>
+    <script type="text/javascript">
+      // Redirect unknown paths to index while preserving SPA route.
+      (function () {
+        const basePath = '/NullPointer';
+        const pathWithQuery = location.pathname + location.search + location.hash;
+        const normalizedPath = pathWithQuery.startsWith(basePath) ? pathWithQuery : basePath + pathWithQuery;
+        const redirectUrl = location.origin + basePath + '/';
+
+        sessionStorage.setItem('gh-pages-spa-redirect', normalizedPath);
+        location.replace(redirectUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

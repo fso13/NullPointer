@@ -10,6 +10,16 @@
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script type="text/javascript">
+      // Handles GitHub Pages SPA deep links by restoring route from query string.
+      (function () {
+        const redirect = sessionStorage.getItem('gh-pages-spa-redirect');
+        if (redirect && redirect !== location.href) {
+          sessionStorage.removeItem('gh-pages-spa-redirect');
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
     <title>NullPointer</title>
   </head>
   <body>
