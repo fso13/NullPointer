@@ -9,19 +9,21 @@ import { IArtist } from '../../types/types';
 // interfaces
 interface IProps {
   artist: IArtist;
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
 }
 
 const MOBILE_COVER_BREAKPOINT = 750;
 const MOBILE_COVER_IMAGE = `${process.env.PUBLIC_URL || ''}/data/YI5mY.jpg`;
+const MOBILE_COVER_QUERY = `(max-width: ${MOBILE_COVER_BREAKPOINT}px)`;
 
-const Header: React.FC<IProps> = ({ artist }) => {
-  const [isMobile, setIsMobile] = useState(false);
+const Header: React.FC<IProps> = ({ artist, searchValue = '', onSearchChange }) => {
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia(MOBILE_COVER_QUERY).matches);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_COVER_BREAKPOINT}px)`);
+    const mediaQuery = window.matchMedia(MOBILE_COVER_QUERY);
     const handleChange = (event: MediaQueryListEvent) => setIsMobile(event.matches);
 
-    setIsMobile(mediaQuery.matches);
     mediaQuery.addEventListener('change', handleChange);
 
     return () => mediaQuery.removeEventListener('change', handleChange);
@@ -35,7 +37,7 @@ const Header: React.FC<IProps> = ({ artist }) => {
       className='artist-cover flex flex-column flex-h-end'
     >
       <div className='artist-gradient'>
-        <Search />
+        <Search value={searchValue} onChange={onSearchChange} />
         <div className='container'>
           <div className='buttons flex flex-gap-small flex-h-center flex-v-center'>
             <span className='flex flex-1 flex-h-start text-shadow'>

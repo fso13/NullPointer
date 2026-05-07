@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 
@@ -11,23 +11,13 @@ import Search from '../components/Search/Search';
 import Information from '../components/Information/Information';
 
 // types
-import type { IAlbum } from '../types/types';
-
 // data
 import albumData from '../data/albumData';
 
 const AlbumPage: React.FC = () => {
   const { id } = useParams();
-
-  const [currentAlbumData, setCurrentAlbumData] = useState<IAlbum | null>(null);
-
-  useEffect(() => {
-    const currentAlbum = albumData.find((album) => album.id === id);
-
-    if (currentAlbum) {
-      setCurrentAlbumData(currentAlbum);
-    }
-  }, [id]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const currentAlbumData = useMemo(() => albumData.find((album) => album.id === id) ?? null, [id]);
 
   const albumCover = useAlbumCover(currentAlbumData);
 
@@ -37,8 +27,8 @@ const AlbumPage: React.FC = () => {
 
   return (
     <Cover image={albumCover}>
-      <Search />
-      <Information album={currentAlbumData} />
+      <Search value={searchQuery} onChange={setSearchQuery} />
+      <Information album={currentAlbumData} searchQuery={searchQuery} />
     </Cover>
   );
 };

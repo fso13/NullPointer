@@ -13,10 +13,12 @@ import { formatDuration, getAudioMetadata } from '../../utils/audioMetadata';
 // interfaces
 interface IProps {
   album: IAlbum;
+  searchQuery?: string;
 }
 
-const Playlist: React.FC<IProps> = ({ album }) => {
+const Playlist: React.FC<IProps> = ({ album, searchQuery = '' }) => {
   const { currentState, currentTrack, handlePlayPause } = useTrack();
+  const normalizedQuery = searchQuery.trim().toLowerCase();
   const staticDurationById = useMemo(() => {
     const map: Record<string, string> = {};
     for (const t of album.tracks || []) {
@@ -26,6 +28,19 @@ const Playlist: React.FC<IProps> = ({ album }) => {
     }
     return map;
   }, [album.tracks]);
+  const filteredTracks = useMemo(
+    () =>
+      (album.tracks || []).filter((track) => {
+        if (!normalizedQuery) {
+          return true;
+        }
+
+        return [track.name, album.name, album.artist.name].some((field) =>
+          field.toLowerCase().includes(normalizedQuery)
+        );
+      }),
+    [album.artist.name, album.name, album.tracks, normalizedQuery]
+  );
 
   const [fetchedDurationById, setFetchedDurationById] = useState<Record<string, string>>({});
 
@@ -66,7 +81,7 @@ const Playlist: React.FC<IProps> = ({ album }) => {
 
   return (
     <section className='playlist'>
-      {album.tracks?.map((item: ITrack) => (
+      {filteredTracks.map((item: ITrack) => (
         <TrackLine
           track={item}
           key={item.id}

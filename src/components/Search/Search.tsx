@@ -1,4 +1,9 @@
-const Search: React.FC = () => (
+interface IProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+const Search: React.FC<IProps> = ({ value = '', onChange }) => (
   <nav className='search flex flex-h-center'>
     <div className='search-container'>
       <label
@@ -13,6 +18,8 @@ const Search: React.FC = () => (
           maxLength={32}
           autoComplete='off'
           placeholder='Search songs, albums, artists...'
+          value={value}
+          onChange={(event) => onChange?.(event.target.value)}
         />
       </label>
     </div>

@@ -1,3 +1,5 @@
+import { useMemo, useState } from 'react';
+
 // hooks
 import useTrack from '../hooks/useTrack';
 
@@ -12,6 +14,8 @@ import albumData from '../data/albumData';
 
 const ArtistPage: React.FC = () => {
   const { currentState, currentTrack } = useTrack();
+  const [searchQuery, setSearchQuery] = useState('');
+  const normalizedQuery = searchQuery.trim().toLowerCase();
   const artist = albumData[0]?.artist;
 
   const albumTracks = albumData
@@ -23,7 +27,32 @@ const ArtistPage: React.FC = () => {
     .filter((album) => album.songs === 1)
     .flatMap((album) => (album.tracks || []).map((track) => ({ album, track })));
 
-  const featuredSongs = [...albumTracks, ...singleTracks];
+  const featuredSongs = useMemo(
+    () =>
+      [...albumTracks, ...singleTracks].filter(({ album, track }) => {
+        if (!normalizedQuery) {
+          return true;
+        }
+
+        return [track.name, album.name, album.artist.name].some((field) =>
+          field.toLowerCase().includes(normalizedQuery)
+        );
+      }),
+    [albumTracks, normalizedQuery, singleTracks]
+  );
+  const filteredAlbums = useMemo(
+    () =>
+      albumData.filter((album) => {
+        if (!normalizedQuery) {
+          return true;
+        }
+
+        return [album.name, album.artist.name].some((field) =>
+          field.toLowerCase().includes(normalizedQuery)
+        );
+      }),
+    [normalizedQuery]
+  );
 
   if (!artist) {
     return <div>Artist not found</div>;
@@ -31,7 +60,7 @@ const ArtistPage: React.FC = () => {
 
   return (
     <div className='artist flex flex-column flex-gap no-select'>
-      <Header artist={artist} />
+      <Header artist={artist} searchValue={searchQuery} onSearchChange={setSearchQuery} />
       <section className='container flex flex-column flex-gap'>
         <div className='flex flex-space-between flex-v-center'>
           <ArtistSectionNav artistId={artist.id} />
@@ -47,7 +76,7 @@ const ArtistPage: React.FC = () => {
           ))}
         </div>
       </section>
-      <Albums url={`/albums/${artist.id}`} title='Albums' albums={albumData} />
+      <Albums url={`/albums/${artist.id}`} title='Albums' albums={filteredAlbums} />
     </div>
   );
 };
